@@ -1,0 +1,340 @@
+@import url("https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css");
+/* Variables for colors */
+$primary-color: #9c27b0; 
+$secondary-color: #ff9800; 
+
+
+$background-color:lightgrey;
+$chat-background: #fafafa; 
+$message-received-color: #bdbdbd; 
+
+
+/* Main container */
+.chat-home-container {
+  display: flex;
+  height: 100vh;
+ 
+}
+
+/* Available persons section */
+.available-persons {
+  width: 27%;
+  background-color: $background-color;
+  background-size: cover;
+  
+  padding: 20px;
+  box-sizing: border-box;
+  overflow-y: auto;
+  @media (max-width: 768px) {
+    width: 100%; 
+  }
+
+  /* Person profile */
+  .person-profile {
+    display: flex;
+    align-items: center;
+    padding: 10px;
+    cursor: pointer;
+    border-bottom: 2px solid #a3a2a2; 
+    transition: transform 0.2s ease-in-out; 
+  
+    img {
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      margin-right: 10px;
+    }
+  
+    span {
+      font-size: 16px;
+      color: #333;
+    }
+  
+    &:hover {
+      background-color: #f2cda7fc;
+      transform: scale(1.05); 
+    }
+  }
+  
+  
+  
+}
+.fl{
+  display: flex;
+  border-bottom: 3px solid #bcadad;
+  padding: 20px;
+  flex-wrap: wrap;
+  
+  row-gap: 10px;
+}
+
+.person-profiles img {
+  width: 60px;
+  height: 60px;
+  box-shadow: 0px 1px 3px 2px black;
+  border-radius: 50%;
+  margin-right: 15px; 
+  transition: transform 0.2s ease-in-out;
+
+  &:hover{
+    transform: scale(1.1);
+  }
+}
+
+
+/* Chat box container */
+.chat-box-container {
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+  
+  @media (max-width: 768px) {
+    width: 100%; 
+  }
+}
+
+/* Chat box section */
+.chat-box {
+    flex-grow: 1;
+    background-image: url('https://t3.ftcdn.net/jpg/03/27/51/56/360_F_327515607_Hcps04aaEc7Ki43d1XZPxwcv0ZaIaorh.jpg');
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    // padding: 20px;
+    box-sizing: border-box;
+    overflow-y: auto;
+    position: relative;
+    height: 100%;
+    
+  
+    .chat-header {
+      display: flex;
+      align-items: center;
+      padding: 10px 20px; 
+      background-color: #e0e0e0; 
+      border-radius: 8px 8px 0 0; 
+      margin-bottom: 10px;
+    
+      position: sticky;
+      top: 0;
+    
+      img {
+        width: 40px;
+        height: 40px;
+        border-radius: 50%;
+        margin-right: 10px;
+      }
+    
+      .user-name {
+        font-size: 18px;
+        font-weight: bold;
+        color: #333;
+      }
+    }
+  }
+/* Messages */
+.message {
+  margin-bottom: 15px;
+  padding: 10px;
+  border-radius: 8px;
+  max-width: 100%;
+  word-wrap: break-word;
+  transition: background-color 0.3s ease;
+  // animation: fadeIn 0.5s ease;
+  /* Received messages */
+  &.received {
+    background-color: $message-received-color;
+    align-self: flex-start;
+    margin-right: auto;
+
+    &:hover {
+      background-color: darken($message-received-color, 10%);
+    }
+  }
+
+  /* Sent messages */
+  &.sent {
+    background-color: $secondary-color;
+    color: #fff;
+    align-self: flex-end;
+    margin-left: auto;
+
+    &:hover {
+      background-color: darken($secondary-color, 10%);
+    }
+  }
+
+  /* Message content */
+  .message-content {
+    font-size: 16px;
+  }
+}
+
+/* Chat header */
+.chat-header {
+  position: sticky;
+  top: 0;
+  z-index: 1; 
+  background-color: #e0e0e0;
+  border-radius: 8px 8px 0 0;
+  padding: 10px 20px;
+  display: flex;
+  align-items: center;
+
+  img {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    margin-right: 10px;
+  }
+
+  .user-name {
+    font-size: 18px;
+    font-weight: bold;
+    color: #333;
+  }
+}
+
+/* Message input section */
+.message-input {
+  position: fixed;
+  bottom: 10px;
+  // left: 420px;
+  width: calc(80% - 40px);
+  
+  display: flex;
+  align-items: left;
+
+  input[type="text"] {
+    flex-grow: 1;
+    padding: 8px;
+    font-size: 16px;
+    border: none;
+    border-radius: 5px;
+    margin-right: 10px;
+  }
+
+  button {
+    padding: 8px 16px;
+    font-size: 16px;
+    background-color: $secondary-color;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+}
+
+/* Keyframe animation for fade in effect */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+/* Apply the fade in animation to the messages */
+// .message {
+//   animation: fadeIn 0.00001s ease;
+// }
+
+.my-profile {
+  display: flex;
+  align-items: center;
+  padding: 10px;
+  border-bottom: 1px solid #ccc; 
+}
+
+.my-profile img {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  margin-right: 10px;
+}
+
+.my-profile span {
+  font-size: 20px;
+  color: #333;
+}
+
+.search-container {
+  margin-top: 20px;
+  text-align: center;
+}
+
+.search-input {
+  padding: 8px 15px;
+  border: 1px solid #ccc;
+  border-radius: 20px;
+  // width: 300px;
+  // max-width: 80%;
+  font-size: 16px;
+  box-sizing: border-box;
+}
+
+
+
+.message-wrapper {
+  display: flex;
+  justify-content: flex-start; 
+}
+
+.message {
+  padding: 10px;
+  border-radius: 5px;
+  display: inline-block;
+  max-width: 70%; 
+}
+
+.right {
+  justify-content: flex-end; 
+}
+
+.left {
+  justify-content: flex-start; 
+}
+
+.message-time {
+  font-size: 0.8em;
+  color: #000000; 
+}
+
+
+.chat-box-inner {
+  overflow-y: auto;
+  flex-grow: 1;
+  height: 80vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.message-row {
+  margin-bottom: 10px;
+}
+
+.message {
+  padding: 5px;
+  border-radius: 5px;
+  display: inline-block;
+  max-width: 70%;
+}
+
+.sent {
+  background-color: #46a200; 
+  float: right;
+}
+
+.received {
+  background-color: #d50000; 
+  float: left;
+}
+
+.message-time {
+  font-size: 0.6em;
+  color: #292828;
+  align-self: flex-end;
+}
+.message{
+  background-color: #a3a2a2;
+}
+/* You can add more styling as per your requirement */
